@@ -1,50 +1,49 @@
 {
   "useCmd": {
     "type": "checkbox",
-    "label": "Usar Comando",
-    "value": true
+    "label": "Usar Comando?",
+    "value": false
   },
-	"command": {
-		"type": "string",
-		"label": "Comando",
-		"value": "!v"
-	},
+  "command": {
+    "type": "string",
+    "label": "Comando",
+    "value": "!v"
+  },
   "isUser": {
     "type": "checkbox",
-    "label": "Mencionar Autor",
+    "label": "Mencionar Autor?",
     "value": false
   },
   "isGuion": {
     "type": "checkbox",
-    "label": "Limpiar nick de Autor",
+    "label": "Limpiar nick de Autor?",
     "value": true
   },
   "isDice": {
     "type": "checkbox",
-    "label": "Usar 'Dice'",
+    "label": "Usar 'Dice'?",
     "value": false
-	},
-	"voz": {
-		"type": "dropdown",
-		"label": "Selecciona una voz",
-		"value": "Mia",
-		"options": {
-            "Mia": "Mia",
-            "Raul": "MS - Raul",
-            "Sabina": "MS - Sabina",
-            "Penelope": "SE - Penelópe",            
-            "Conchita": "SE - Conchita",
-            "Alejandra": "SE - Alejandra",
-            "Rosalinda": "SE - Rosalinda",
-            "Miguel": "SE - Miguel",
-            "Enrique": "SE - Enrique",
-            "es_mx_002": "TikTok - Varón 1",
-            "es_male_m3": "TikTok - Varón 2",
-            "es_female_f6": "TikTok - Mujer 1",
-            "es_female_fp1": "TikTok - Mujer 2",
-            "es_mx_female_supermom": "TikTok - SuperMamá 3"
-		}
-	},
+  },
+  "voz": {
+    "type": "dropdown",
+    "label": "Selecciona una voz",
+    "value": "Sabina",
+    "options": {      
+      "Raul": "MS - Raul",
+      "Sabina": "MS - Sabina",
+      "Penelope": "SE - Penelópe",
+      "Conchita": "SE - Conchita",
+      "Alejandra": "SE - Alejandra",
+      "Rosalinda": "SE - Rosalinda",
+      "Miguel": "SE - Miguel",
+      "Enrique": "SE - Enrique",
+      "es_mx_002": "TikTok - Varón 1",
+      "es_male_m3": "TikTok - Varón 2",
+      "es_female_f6": "TikTok - Mujer 1",
+      "es_female_fp1": "TikTok - Mujer 2",
+      "es_mx_female_supermom": "TikTok - SuperMamá 3"
+    }
+  },
   "volumen": {
     "type": "slider",
     "label": "Volumen",
@@ -55,8 +54,8 @@
   },
   "campana": {
     "type": "checkbox",
-    "label": "Sonar Campana",
-    "value": true
+    "label": "Sonar Campana?",
+    "value": false
   },
   "volumring": {
     "type": "slider",
@@ -65,5 +64,10 @@
     "min": 0,
     "max": 100,
     "step": 1
+  },
+  "ignore": {
+    "type": "string",
+    "label": "No leer a estos",
+    "value": "BotRixOficial StreamElements own3d nightbot"
   }
 }
