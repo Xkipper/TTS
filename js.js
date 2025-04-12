@@ -1,5 +1,5 @@
 console.clear();
-let cmd = '!v', voz = 'Sabina', usarCMD = true, volumen, volumring, isDice = false, isUser = false;
+let cmd = '!v', voz = 'Sabina', usarCMD = true, volumen, volumring, isDice = false, isUser = false, ignorar;
 let textoPendiente 		= [];
 let mensajes			= [];
 const TTS_BASE 			= 'https://api.streamelements.com/kappa/v2/speech';
@@ -43,13 +43,14 @@ window.addEventListener('onWidgetLoad', async function(obj) {
 	isDice 				= fieldData['isDice'];
 	volumen 			= fieldData['volumen'];
 	volumring 			= fieldData['volumring'];
+	ignorar 			= fieldData['ignore'].toLowerCase();
 
 
 });
 
 
 window.addEventListener('onEventReceived', async function(obj) {
-
+	
 	if (obj.detail.event || obj.detail.listener) {	
 
 		const listener = obj.detail.listener;
@@ -80,12 +81,10 @@ window.addEventListener('onEventReceived', async function(obj) {
 			return;
 		}
 
-		// IGNORAR ESTOS NICKS
-		if (data.displayName === 'BotRixOficial') return;
-		if (data.displayName === 'StreamElements') return;
-		if (data.displayName === 'own3d') return;
-		if (data.displayName === 'nightbot') return;
-
+		// IGNORAR ESTOS NICK
+		const ignoreName = data.nick.toLowerCase();
+		if (ignorar.indexOf(ignoreName) > -1) return;
+		
 		limpiarTexto(data.text, data.emotes)
 			.then(async (textoLimpio) => {
 				if (textoLimpio == null) return;
@@ -143,7 +142,7 @@ async function playTTS(text) {
 			textoPendiente.push(text);
 			await hablarTexto();
 		} else {
-		  const params = new URLSearchParams({ voice: voz, text: encodeURIComponent(text) });
+		  const params = new URLSearchParams({ voice: voz, text: text });
 		  const speakUrl = `${TTS_BASE}?${params.toString()}`;
 		  console.log('Reproduciendo TTS:', speakUrl);
 	
